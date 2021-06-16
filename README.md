@@ -22,9 +22,9 @@
 2. Install all python packages from requirement.txt or
 
 ```bash
-git clone https://github.com/video-dev/hls.js.git
+git clone https://github.com/bhavinparekh/automation_test.git
 
-cd hls.js
+cd automation_test
 
 pip install -r requirements.txt
 ```
@@ -43,18 +43,18 @@ http://localhost:9099/
 
 ## Run Scripts
 
-######1.Setup a script that opens the webpage you generated in Test 1 on multiple chrome and Firefox browsers.
+#####1.Setup a script that opens the webpage you generated in Test 1 on multiple chrome and Firefox browsers.
 
 ```bash
 python3 selenium_scripts/test1.py 
 ```
 
-######2. Add to the script the ability to PLAY, PAUSE and SEEK the hlsjs video player
+#####2. Add to the script the ability to PLAY, PAUSE and SEEK the hlsjs video player
 
 ```bash
 python3 selenium_scripts/test2.py 
 ```
-######3. Add some tests to verify that PLAY, PAUSE and SEEK did work.
+#####3. Add some tests to verify that PLAY, PAUSE and SEEK did work.
 
 Note: For this test I used Python behave framework to write test cases. Link to python behave documentation: https://behave.readthedocs.io/en/stable/
 ```bash
@@ -79,7 +79,7 @@ Feature: Showing off behave # features/video_automation.feature:2
 Took 0m31.820s
 
 ```
-######4. Docker for 3rd test
+#####4. Docker for 3rd test
 Install docker-compose in your system using following link : https://docs.docker.com/compose/install/
 ```bash
 docker-compose up --build
