@@ -9,7 +9,7 @@ services:
     network_mode: host
   server:
     build: .
-    command: python3 app.py b
+    command: python3 app.py
     ports:
         - 9099:9099
     network_mode: host

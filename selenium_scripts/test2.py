@@ -16,7 +16,7 @@ driver = webdriver.Chrome(executable_path="chromedriver", options=chrome_options
 driver.implicitly_wait(100)
 
 # load web page
-driver.get('http://localhost:9098')
+driver.get('http://localhost:9099')
 
 # find video tag
 video = driver.find_element_by_id('video')

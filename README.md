@@ -12,7 +12,7 @@
 ![ScreenShot](screenshots/test2_charles_proxy1.png)
 ![ScreenShot](screenshots/test2_charles-proxy2.png)
 
-#### Streamroot technology is integrated at the player level and more specifically into the player’s media engine. Streamroot replaces the player’s downloader module with its own downloader, which is specifically designed to direct and handle traffic from multiple sources, as well as to cache it and hand it off to the player’s media buffer.
+#### SR replaces the player’s downloader module with its downloader, which handles traffic from multiple sources, as well as cache it and hands it off to the player’s media buffer.
 
 ### Test 3: Selenium and python
 
@@ -65,18 +65,20 @@ output in console
 Feature: Showing off behave # features/video_automation.feature:2
 
   Scenario: test to verify that PLAY, PAUSE and SEEK did work  # features/video_automation.feature:4
-    Given initialize selenium webdriver                        # features/steps/video_player_steps.py:12 1.120s
-    When I launch browser                                      # features/steps/video_player_steps.py:26 0.170s
-    And play video for 10s                                     # features/steps/video_player_steps.py:36 10.037s
-    And pause video for 10s                                    # features/steps/video_player_steps.py:47 10.023s
-    And seek video for 30s                                     # features/steps/video_player_steps.py:58 0.396s
-    And play video for 10s                                     # features/steps/video_player_steps.py:36 10.017s
-    Then Test successful and close browser                     # features/steps/video_player_steps.py:70 0.057s
+    Given initialize selenium webdriver                        # features/steps/video_player_steps.py:12 1.143s
+    When I launch browser                                      # features/steps/video_player_steps.py:26 0.295s
+    And check video loaded                                     # features/steps/video_player_steps.py:36 0.010s
+    And play video for 10s                                     # features/steps/video_player_steps.py:50 10.048s
+    And pause video for 10s                                    # features/steps/video_player_steps.py:64 10.033s
+    And seek video for 25s                                     # features/steps/video_player_steps.py:75 0.117s
+    And play video for 10s                                     # features/steps/video_player_steps.py:50 10.029s
+    Then Test successful and close browser                     # features/steps/video_player_steps.py:87 0.060s
 
 1 feature passed, 0 failed, 0 skipped
 1 scenario passed, 0 failed, 0 skipped
-7 steps passed, 0 failed, 0 skipped, 0 undefined
-Took 0m31.820s
+8 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m31.736s
+
 
 ```
 #### 4. Docker for 3rd test
