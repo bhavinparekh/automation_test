@@ -97,7 +97,7 @@ Note: Because we already run app.py on port 9099, so our build gets error like
 
 ## Summary 
 
-After doing this test I learn First time About CDN mesh devilry and How the peer-to-peer network work.
+After doing this test I learn more About CDN mesh devilry and How the peer-to-peer network work.
 
 I face one issue while doing this excise that first my demo works perfectly without Charles proxy but after some time it's stopped working until I started Charles proxy. So Didn't able to figure out what's the issue I am facing with proxies. 
 
