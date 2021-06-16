@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  demo_app:
+    build: .
+    command: behave
+    depends_on:
+      - server
+    network_mode: host
+  server:
+    build: .
+    command: python3 app.py b
+    ports:
+        - 9099:9099
+    network_mode: host
+
+

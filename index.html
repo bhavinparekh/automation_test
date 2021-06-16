@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Hls.js demo - basic usage</title>
+   <!-- Makes the header -->
+	<script src="//samples.streamroot.io/web/assets/header.js"></script>
+
+	<!-- Builds -->
+	<script src="//cdn.jsdelivr.net/npm/hls.js@0.12.2/dist/hls.min.js"></script>
+	<script src="//cdn.streamroot.io/hlsjs-dna-wrapper/1/stable/hlsjs-dna-wrapper.js"></script>
+
+	<!-- Graphs -->
+	<script src="//tools.streamroot.io/usage-graphs/stable/graphs.js"></script>
+</head>
+
+<body>
+
+
+<center>
+    <h1>Hls.js demo </h1>
+    <video height="400" id="video" controls></video>
+    <div id="streamroot-graphs"></div>
+</center>
+
+<script>
+    var hlsjsConfig = {
+			"maxBufferSize": 0,
+			"maxBufferLength": 30,
+			"liveSyncDuration": 30
+		};
+		var dnaConfig = {};
+		var hls = new Hls(hlsjsConfig);
+		var wrapper = new HlsjsDnaWrapper(hls, "qa8", dnaConfig);
+		var videoElement = document.getElementById('video');
+        hls.loadSource('https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8');
+		hls.attachMedia(videoElement);
+		hls.on(Hls.Events.MANIFEST_PARSED, function () {
+			videoElement.play();
+		});
+
+</script>
+</body>
+</html>
