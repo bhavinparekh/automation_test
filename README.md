@@ -9,8 +9,9 @@
 
 ### Test 2: HTTP traffic inspection using Charles Proxy
 
-![ScreenShot](screenshots/test2_charles_proxy1.png)
+![ScreenShot](screenshots/test2_charles_proxy3.png)
 ![ScreenShot](screenshots/test2_charles-proxy2.png)
+![ScreenShot](screenshots/test2_charles_proxy4.png)
 
 
 
