@@ -1,4 +1,3 @@
-# -- FILE: features/example.feature
 Feature: Showing off behave
 
   Scenario: test to verify that PLAY, PAUSE and SEEK did work

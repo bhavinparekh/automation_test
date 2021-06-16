@@ -1,4 +1,3 @@
-# -- FILE: features/steps/example_steps.py
 from behave import given, when, then, step
 import time
 import chromedriver_autoinstaller
