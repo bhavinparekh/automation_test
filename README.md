@@ -12,7 +12,9 @@
 ![ScreenShot](screenshots/test2_charles_proxy1.png)
 ![ScreenShot](screenshots/test2_charles-proxy2.png)
 
-#### SR replaces the player’s downloader module with its downloader, which handles traffic from multiple sources, as well as cache it and hands it off to the player’s media buffer.
+
+
+#### CDN mesh Dilevry replaces the player’s downloader module with its downloader, which handles traffic from multiple sources, as well as cache it and hands it off to the player’s media buffer.
 
 ### Test 3: Selenium and python
 
@@ -44,8 +46,9 @@ http://localhost:9099/
 ## Run Scripts
 
 #### 1.Setup a script that opens the webpage you generated in Test 1 on multiple chrome and Firefox browsers.
-
+Note: Open New terminal 
 ```bash
+cd automation_test
 python3 selenium_scripts/test1.py 
 ```
 
@@ -56,7 +59,8 @@ python3 selenium_scripts/test2.py
 ```
 #### 3. Add some tests to verify that PLAY, PAUSE and SEEK did work.
 
-Note: For this test I used Python behave framework to write test cases. Link to python behave documentation: https://behave.readthedocs.io/en/stable/
+Note: For this test, I used Python behave framework to write test cases. Link to python behave documentation: https://behave.readthedocs.io/en/stable/
+
 ```bash
 $ behave
 ```
@@ -86,12 +90,17 @@ Install docker-compose in your system using following link : https://docs.docker
 ```bash
 docker-compose up --build
 ```
-Note: Becuase we already run app.py on port 9099, so our build gets error like
-: 'OSError: [Errno 98] Address already in use' . to avoid this before starting docker kill all running ports 
 
-## view
+Note: Because we already run app.py on port 9099, so our build gets error like
+: 'OSError: [Errno 98] Address already in use'  to avoid this before starting docker kill all running ports 
 
 
-```ini
-http : //localhost:9091/
-```
+## Summary 
+
+After doing this test I learn First time About CDN mesh devilry and How the peer-to-peer network work.
+
+I face one issue while doing this excise that first my demo works perfectly without Charles proxy but after some time it's stopped working until I started Charles proxy. So Didn't able to figure out what's the issue I am facing with proxies. 
+
+The 3rd test used selenium python. And for the test framework, I used Python behave which similar to cucumber.
+
+Set up the docker for the project is a little tricky because of port and localhost API calls.

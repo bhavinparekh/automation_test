@@ -8,9 +8,7 @@ from selenium.webdriver.common.keys import Keys
 # configure Chrome diver
 chromedriver_autoinstaller.install()
 chrome_options = Options()
-
 chrome_options.add_argument('--no-sandbox')
-
 chrome_options.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome(executable_path="chromedriver", options=chrome_options)
 driver.implicitly_wait(100)
