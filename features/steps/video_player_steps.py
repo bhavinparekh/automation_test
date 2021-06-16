@@ -26,7 +26,7 @@ def step_impl(context):
 @when("I launch browser")
 def step_impl(context):
     # load web page
-    context.driver.get('http://localhost:9099')
+    context.driver.get('http://localhost:9098')
 
     # find video tag
     context.video = context.driver.find_element_by_id('video')
@@ -39,8 +39,12 @@ def step_impl(context, number):
     :param number:
     :type context: behave.runner.Context
     """
-    context.video.send_keys(Keys.ENTER)
-    time.sleep(number)
+    # play video for 10s
+    if context.driver.find_element_by_id('video').get_attribute("src"):
+        time.sleep(number)
+    else:
+        raise Exception('Error proxy not found: Check Charles Proxy')
+
     assert NotImplementedError(u'STEP: And play video for 10s')
 
 

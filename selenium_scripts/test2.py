@@ -16,16 +16,16 @@ driver = webdriver.Chrome(executable_path="chromedriver", options=chrome_options
 driver.implicitly_wait(100)
 
 # load web page
-driver.get('http://localhost:9099')
+driver.get('http://localhost:9098')
 
 # find video tag
 video = driver.find_element_by_id('video')
 
 # play video for 10s
-if video.send_keys(Keys.ENTER):
+if driver.find_element_by_id('video').get_attribute("src"):
     pass
 else:
-    print('error')
+    raise Exception('Error proxy not found: Check Charles Proxy')
 time.sleep(10)
 
 # pause video for 10s
@@ -39,4 +39,4 @@ for i in range(time_seek):
 
 time.sleep(10)
 video.send_keys(Keys.SPACE)
-print('lkdsfuidfdfyfhqdfb')
+print('all tested successfully')

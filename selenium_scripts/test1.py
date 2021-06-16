@@ -23,3 +23,5 @@ driver.switch_to.window("tab3")
 # fourth tab
 driver.execute_script("window.open('http://localhost:9099', 'tab4');")
 driver.switch_to.window("tab4")
+
+print('all tested successfully')
