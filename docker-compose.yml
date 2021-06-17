@@ -1,17 +1,20 @@
 version: '3'
 
 services:
-  demo_app:
+  web_app:
     build: .
-    command: behave
+    command: python3 api.py runserver 0.0.0.0:7000
+    ports:
+      - 7000:7000
     depends_on:
       - server
     network_mode: host
+
   server:
     build: .
     command: python3 app.py
     ports:
-        - 9099:9099
+      - 9099:9099
     network_mode: host
 
 

@@ -4,19 +4,16 @@
 
 ### Test 1: Build a hlsjs player page with sr integrated.
 
-I created a webpage using the repo and link you provided in the document. And for the server part, I am using python 
+I created a webpage using the repo and link you provided in the document. And for the server part, I am using python
 
 ![ScreenShot](screenshots/test1_hlsjs_player.png)
 ![ScreenShot](screenshots/test1_hls_player2.png)
 
- 
 ### Test 2: HTTP traffic inspection using Charles Proxy
 
 ![ScreenShot](screenshots/test2_charles_proxy3.png)
 ![ScreenShot](screenshots/test2_charles-proxy2.png)
 ![ScreenShot](screenshots/test2_charles_proxy4.png)
-
-
 
 #### CDN mesh Delivery replaces the player’s downloader module with its downloader, which handles traffic from multiple sources, as well as cache it and hands it off to the player’s media buffer.
 
@@ -47,64 +44,51 @@ python3 app.py
 http://localhost:9099/
 ```
 
-## Run Scripts
+4.To run test cases
 
-#### 1.Set up a script that opens the webpage you generated in Test 1 on multiple chrome and Firefox browsers.
-Note: Open new in terminal 
+```bash
+python3 api.py runserver 0.0.0.0:7000
+```
+
+### Run Test in Docker environment
+
+1. Navigate to the working folder and run the following command
+
 ```bash
 cd automation_test
-python3 selenium_scripts/test1.py 
-```
-
-#### 2. Add to the script the ability to PLAY, PAUSE and SEEK the hlsjs video player
-
-```bash
-python3 selenium_scripts/test2.py 
-```
-#### 3. Add some tests to verify that PLAY, PAUSE and SEEK did work.
-
-Note: For this test, I used Python behave framework to write test cases. Link to python behave documentation: https://behave.readthedocs.io/en/stable/
-
-```bash
-$ behave
-```
-output in console 
-```
-Feature: Showing off behave # features/video_automation.feature:2
-
-  Scenario: test to verify that PLAY, PAUSE and SEEK did work  # features/video_automation.feature:4
-    Given initialize selenium webdriver                        # features/steps/video_player_steps.py:12 1.143s
-    When I launch browser                                      # features/steps/video_player_steps.py:26 0.295s
-    And check video loaded                                     # features/steps/video_player_steps.py:36 0.010s
-    And play video for 10s                                     # features/steps/video_player_steps.py:50 10.048s
-    And pause video for 10s                                    # features/steps/video_player_steps.py:64 10.033s
-    And seek video for 25s                                     # features/steps/video_player_steps.py:75 0.117s
-    And play video for 10s                                     # features/steps/video_player_steps.py:50 10.029s
-    Then Test successful and close browser                     # features/steps/video_player_steps.py:87 0.060s
-
-1 feature passed, 0 failed, 0 skipped
-1 scenario passed, 0 failed, 0 skipped
-8 steps passed, 0 failed, 0 skipped, 0 undefined
-Took 0m31.736s
-
-
-```
-#### 4. Docker for 3rd Python behave test
-
-Install docker-compose in your system using following link : https://docs.docker.com/compose/install/
-```bash
 docker-compose up --build
 ```
+##### Test 1
+Go to http://0.0.0.0:7000/launchTest1
+
+select "post" in Postman
+
+put following json in body part
+
+```
+{
+    "browser": "chrome",
+    "number": 3
+}
+```
+Click 'send'
+##### Test 2
+Go to http://0.0.0.0:7000/launchTest2
+
+select "Get" in Postman
+
+Click 'send'
 
 Note: Because we already run app.py on port 9099, so our build gets error like
-: 'OSError: [Errno 98] Address already in use'  to avoid this before starting docker kill all running ports 
+: 'OSError: [Errno 98] Address already in use' to avoid this before starting docker kill all running ports
 
-
-## Summary 
+## Summary
 
 After doing this test I learn more About CDN mesh devilry and How the peer-to-peer network work.
 
-I face one issue while doing this excise that first my demo works perfectly without Charles proxy but after some time it's stopped working until I started Charles proxy. So Didn't able to figure out what's the issue I am facing with proxies. 
+I face one issue while doing this excise that first my demo works perfectly without Charles proxy but after some time
+it's stopped working until I started Charles proxy. So Didn't able to figure out what's the issue I am facing with
+proxies.
 
 The 3rd test used selenium python. And for the test framework, I used Python behave which similar to cucumber.
 

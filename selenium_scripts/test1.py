@@ -1,28 +1,32 @@
 import chromedriver_autoinstaller
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.options import Options as Chrome_options
+import geckodriver_autoinstaller
+from selenium.webdriver.firefox.options import Options
 
-# Set up chrome drivet
+# Set up driver
+geckodriver_autoinstaller.install()
 chromedriver_autoinstaller.install()
-chrome_options = Options()
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--disable-dev-shm-usage')
-driver = webdriver.Chrome(executable_path="chromedriver", options=chrome_options)
 
-# First tab
-driver.implicitly_wait(100)
-driver.get('http://localhost:9099')
 
-# second tab
-driver.execute_script("window.open('http://localhost:9099', 'tab2');")
-driver.switch_to.window("tab2")
+def test(browser, number):
+    try:
+        if browser == 'chrome':
+            chrome_options = Chrome_options()
+            chrome_options.add_argument('--headless')
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument('--disable-dev-shm-usage')
+            driver = webdriver.Chrome(executable_path="chromedriver", options=chrome_options)
+        else:
+            options = Options()
+            options.headless = True
+            driver = webdriver.Firefox(executable_path='geckodriver', options=options)
 
-# third tab
-driver.execute_script("window.open('http://localhost:9099', 'tab3');")
-driver.switch_to.window("tab3")
-
-# fourth tab
-driver.execute_script("window.open('http://localhost:9099', 'tab4');")
-driver.switch_to.window("tab4")
-
-print('all tested successfully')
+        driver.implicitly_wait(100)
+        driver.get('http://localhost:9099')
+        for i in range(int(number) - 2):
+            driver.execute_script(f"window.open('http://localhost:9099', 'tab'+{str(i + 2)});")
+            driver.switch_to.window('tab' + str(i + 2))
+        return 'all tested successfully'
+    except:
+        return 'test failed'
