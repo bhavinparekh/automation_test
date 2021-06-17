@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  web_app:
+  test_api:
     build: .
     command: python3 api.py runserver 0.0.0.0:7000
     ports:

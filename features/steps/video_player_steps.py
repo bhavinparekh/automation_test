@@ -13,6 +13,7 @@ def step_impl(context):
     # configure Chrome diver
 
     context.chrome_options = Options()
+    # used headless because of docker implementation if you want pop up browser just remove headless tag
     context.chrome_options.add_argument('--headless')
     context.chrome_options.add_argument('--no-sandbox')
     context.chrome_options.add_argument('--disable-dev-shm-usage')

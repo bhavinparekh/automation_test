@@ -13,6 +13,7 @@ def test(browser, number):
     try:
         if browser == 'chrome':
             chrome_options = Chrome_options()
+            # used headless because of docker implementation if you want pop up browser just remove headless tag
             chrome_options.add_argument('--headless')
             chrome_options.add_argument('--no-sandbox')
             chrome_options.add_argument('--disable-dev-shm-usage')
