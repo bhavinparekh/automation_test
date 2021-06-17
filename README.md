@@ -52,7 +52,8 @@ http://localhost:9099/
 ```bash
 python3 api.py runserver 0.0.0.0:7000
 ```
-##### I used headless browser because of docker implementation if you want pop up browser for that you have to just remove [ chrome_options.add_argument('--headless') ] from selenium_scripts/test1.py and features/steps/video_players_steps.py and then try run locally without docker and follow same steps for postman as mention bellow. 
+
+I used a headless browser because of the docker implementation if you want a pop-up browser for that you have to just remove [ chrome_options.add_argument('--headless') ] from selenium_scripts/test1.py and features/steps/video_players_steps.py  then try run locally without docker and follow the same steps for the postman as mention bellow. 
 
 # Run Test in Docker environment
 
