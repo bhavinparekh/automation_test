@@ -31,15 +31,13 @@ def test1api(model: test1Model):
 def test2api():
     bashCommand = "behave -f allure_behave.formatter:AllureFormatter -o test_result"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
-    output, error = process.communicate()
-    path = "./test_result"
-    files_sorted_by_date = []
-
+    process.communicate()
+    path = "test_result"
     filepaths = [os.path.join(path, file) for file in os.listdir(path)]
     file_statuses = [(os.stat(filepath), filepath) for filepath in filepaths]
     files = ((status[stat.ST_CTIME], filepath) for status, filepath in file_statuses if
              stat.S_ISREG(status[stat.ST_MODE]))
-    for creation_time, filepath in sorted(files):
+    for creation_time, filepath in sorted(files, reverse=True):
         break
     f = open(filepath)
     data = json.load(f)
