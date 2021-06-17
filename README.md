@@ -2,11 +2,14 @@
 
 ## Getting started
 
-### Test 1: Build a hlsjs player page with SR integrated.
+### Test 1: Build a hlsjs player page with sr integrated.
+
+I created a webpage using the repo and link you provided in the document. And for the server part, I am using python 
 
 ![ScreenShot](screenshots/test1_hlsjs_player.png)
 ![ScreenShot](screenshots/test1_hls_player2.png)
 
+ 
 ### Test 2: HTTP traffic inspection using Charles Proxy
 
 ![ScreenShot](screenshots/test2_charles_proxy3.png)
@@ -15,14 +18,14 @@
 
 
 
-#### CDN mesh Dilevry replaces the player’s downloader module with its downloader, which handles traffic from multiple sources, as well as cache it and hands it off to the player’s media buffer.
+#### CDN mesh Delivery replaces the player’s downloader module with its downloader, which handles traffic from multiple sources, as well as cache it and hands it off to the player’s media buffer.
 
 ### Test 3: Selenium and python
 
 ## Installation
 
-1. Install python3 in your system.Link to python documentation: https://installpython3.com/
-2. Install all python packages from requirement.txt or
+1. Install python3 in your system. Link to python documentation: https://installpython3.com/
+2. Install all python packages from requirement.txt
 
 ```bash
 git clone https://github.com/bhavinparekh/automation_test.git
@@ -32,13 +35,13 @@ cd automation_test
 pip install -r requirements.txt
 ```
 
-3.To lunch application
+3.To lunch the application
 
 ```bash
 python3 app.py
 ```
 
-3.view web page go to localhost
+3.To view web page go to localhost 9099
 
 ```bash
 http://localhost:9099/
@@ -46,8 +49,8 @@ http://localhost:9099/
 
 ## Run Scripts
 
-#### 1.Setup a script that opens the webpage you generated in Test 1 on multiple chrome and Firefox browsers.
-Note: Open New terminal 
+#### 1.Set up a script that opens the webpage you generated in Test 1 on multiple chrome and Firefox browsers.
+Note: Open new in terminal 
 ```bash
 cd automation_test
 python3 selenium_scripts/test1.py 
