@@ -2,10 +2,8 @@ import uvicorn as uvicorn
 from fastapi import FastAPI, Form
 from pydantic import BaseModel
 import selenium_scripts.test1 as test1
-import subprocess
-import json
-import os
-import stat
+
+from selenium_scripts import test3
 
 app = FastAPI()
 
@@ -17,7 +15,7 @@ class test1Model(BaseModel):
 
 @app.get('/')
 def home():
-    return {"Welcome to AR Cut & Paste"}
+    return {"Welcome to Automation Test"}
 
 
 @app.post('/launchTest1')
@@ -29,18 +27,7 @@ def test1api(model: test1Model):
 
 @app.get('/launchTest2')
 def test2api():
-    bashCommand = "behave -f allure_behave.formatter:AllureFormatter -o test_result"
-    process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
-    process.communicate()
-    path = "test_result"
-    filepaths = [os.path.join(path, file) for file in os.listdir(path)]
-    file_statuses = [(os.stat(filepath), filepath) for filepath in filepaths]
-    files = ((status[stat.ST_CTIME], filepath) for status, filepath in file_statuses if
-             stat.S_ISREG(status[stat.ST_MODE]))
-    for creation_time, filepath in sorted(files, reverse=True):
-        break
-    f = open(filepath)
-    data = json.load(f)
+    data = test3.test()
     return {'result': data}
 
 

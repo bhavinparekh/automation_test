@@ -9,12 +9,19 @@ services:
     depends_on:
       - server
     network_mode: host
-
+    volumes:
+      - data:/app
   server:
     build: .
     command: python3 app.py
     ports:
-      - 9099:9099
+      - 9098:9098
     network_mode: host
+    volumes:
+      - data:/app
+volumes:
+  data:
+
+
 
 
