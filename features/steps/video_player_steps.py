@@ -26,7 +26,7 @@ def step_impl(context):
 @when("I launch browser")
 def step_impl(context):
     # load web page
-    context.driver.get('http://localhost:9098')
+    context.driver.get('http://localhost:9099')
 
     # find video tag
     context.video = context.driver.find_element_by_id('video')

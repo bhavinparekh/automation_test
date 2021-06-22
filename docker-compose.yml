@@ -15,7 +15,7 @@ services:
     build: .
     command: python3 app.py
     ports:
-      - 9098:9098
+      - 9099:9099
     network_mode: host
     volumes:
       - data:/app
