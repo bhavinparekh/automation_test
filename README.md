@@ -4,7 +4,6 @@
 
 ### Test 1: Build a hlsjs player page with sr integrated.
 
-I created a webpage using the repo and link you provided in the document. And for the server part, I am using python
 
 ![ScreenShot](screenshots/test1_hlsjs_player.png)
 ![ScreenShot](screenshots/test1_hls_player2.png)
